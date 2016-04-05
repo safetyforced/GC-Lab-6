@@ -6,6 +6,7 @@ public class TranslatePigLatin {
 
 	static int charLocation;
 	static String[] parts;
+	static String output = "";
 
 	public static void main(String[] args) {
 
@@ -19,17 +20,16 @@ public class TranslatePigLatin {
 
 		for (int i = 0; i < parts.length; i++) {
 			charLocation = testWord(parts[i]);
-			translateWord(parts[i], charLocation);
+			output = output + translateWord(parts[i], charLocation);
 		}
+		System.out.println(output);
 	}
 	
-	public static void translateWord(String word, int charIndex) {
+	public static String translateWord(String word, int charIndex) {
 		if (charIndex == 0) {
-			System.out.print(word + "way ");
+			return word + "way ";
 		} else {
-			System.out.print(word.substring(charIndex));
-			System.out.print(word.substring(0, charIndex));
-			System.out.print("ay ");
+			return word.substring(charIndex) + word.substring(0, charIndex) + "ay ";
 		}
 	}
 	
